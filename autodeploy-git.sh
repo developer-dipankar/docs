@@ -12,6 +12,7 @@ script="#!/bin/sh
 git --work-tree="$PWD/$deployment_folder" --git-dir="$PWD/autodeployment/$deployment_folder.git" checkout -f "$branch_name;
 
 echo "$script" > "$PWD/autodeployment/$deployment_folder.git/hooks/post-receive"
+chmod +x $PWD/autodeployment/$deployment_folder.git/hooks/post-receive
 printf "\033[1;31m* Paste additional script (End with Ctrl+D) \033[0m\n"
 additional_script=$(cat)
 echo "$additional_script" >> "$PWD/autodeployment/$deployment_folder.git/hooks/post-receive"
